@@ -4,10 +4,13 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "echo \"여기에 빌드스크립트를 추가합니다.\""
+    "build": "webpack"
   },
   "author": "",
   "license": "ISC",
   "description": "",
-  "dependencies": {}
+  "devDependencies": {
+    "webpack": "^5.97.1",
+    "webpack-cli": "^6.0.1"
+  }
 }
