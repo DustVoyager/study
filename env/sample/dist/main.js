@@ -1,8 +1,10 @@
-/**
- * 이것은 BannerPlugin이 처리한 결과입니다.
- * Build Date: 2025-02-14
+/*!
+ * 
+ *       Build Date: 2/14/2025, 7:15:12 PM
+ *       Commit Version: c5a9f82
+ *       Author: DustVoyager
+ *
  */
-
 /*
  * ATTENTION: The "eval" devtool has been used (maybe by default in mode: "development").
  * This devtool is neither made for production nor for readable output files.

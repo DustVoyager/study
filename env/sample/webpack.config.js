@@ -1,5 +1,32 @@
 const path = require("path");
-const MyWebpackPlugin = require("./my-webpack-plugin");
+// const MyWebpackPlugin = require("./my-webpack-plugin"); 배너 플러그인 만들어본 것
+const webpack = require("webpack");
+const childProcess = require("child_process");
+
+const getGitCommit = () => {
+  try {
+    return childProcess
+      .execFileSync("git", ["rev-parse", "--short", "HEAD"])
+      .toString()
+      .trim();
+  } catch (error) {
+    console.warn("⚠️ Git commit 정보를 가져올 수 없습니다.");
+    return "N/A";
+  }
+};
+
+const getGitUser = () => {
+  try {
+    return childProcess.execFileSync("git", ["config", "user.name"]).toString().trim();
+  } catch (error) {
+    console.warn("⚠️ Git 사용자 정보를 가져올 수 없습니다.");
+    return "Unknown";
+  }
+};
+console.log(
+  'childProcess.execSync("git rev-parse --short HEAD")',
+  childProcess.execSync("git rev-parse --short HEAD").toString().trim()
+);
 
 module.exports = {
   mode: "development",
@@ -25,5 +52,14 @@ module.exports = {
       },
     ],
   },
-  plugins: [new MyWebpackPlugin()],
+  // plugins: [new MyWebpackPlugin()], banner plugin 만든 것
+  plugins: [
+    new webpack.BannerPlugin({
+      banner: `
+      Build Date: ${new Date().toLocaleString()}
+      Commit Version: ${getGitCommit()}
+      Author: ${getGitUser()}
+      `,
+    }),
+  ],
 };
