@@ -1,3 +1,8 @@
+/**
+ * 이것은 BannerPlugin이 처리한 결과입니다.
+ * Build Date: 2025-02-14
+ */
+
 /*
  * ATTENTION: The "eval" devtool has been used (maybe by default in mode: "development").
  * This devtool is neither made for production nor for readable output files.
