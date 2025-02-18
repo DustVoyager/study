@@ -34,7 +34,7 @@ const getGitUser = () => {
 
 module.exports = {
   mode: "development",
-  entry: { main: "./src/app.js" },
+  entry: { main: "./app.js" },
   output: {
     path: path.resolve("./dist"),
     filename: "[name].js",
@@ -58,6 +58,11 @@ module.exports = {
             maxSize: 20 * 1024, // 2KB 이하 이미지는 Base64 (2 * 1024 = 2048 바이트)
           },
         },
+      },
+      {
+        test: /\.js$/,
+        loader: "babel-loader",
+        exclude: /node_modules/,
       },
     ],
   },
